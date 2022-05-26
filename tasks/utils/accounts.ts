@@ -12,8 +12,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 task("balance", "Prints the list of accounts and balance", async (taskArgs, hre) => {
     const accounts = await hre.ethers.getSigners()
 
-    let balance = await hre.ethers.provider.getBalance("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
-    console.log(`Acc: ${"0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"} , balance: ${balance} `);
+    let balance = await hre.ethers.provider.getBalance("0x8D49D9C2fAd468d346c6EC00CE59Ccd3fEB7844A")
+    console.log(`Acc: ${"0x8D49D9C2fAd468d346c6EC00CE59Ccd3fEB7844A"} , balance: ${balance} `);
 
     for (const account of accounts) {
         let balance = await hre.ethers.provider.getBalance(account.address)

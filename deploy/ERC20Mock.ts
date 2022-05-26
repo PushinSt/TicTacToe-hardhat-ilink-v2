@@ -13,7 +13,7 @@ module.exports = async function (hre: HardhatRuntimeEnvironment) {
 
     const name = 'ERC20Mock'
     const symbol = 'ERC'
-    const totalSupply = ethers.utils.parseUnits('1000000', 6)
+    const totalSupply = 1000000
 
     await deploy('ERC20Mock', {
         args: [

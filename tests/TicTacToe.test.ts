@@ -29,12 +29,6 @@ describe("TicTacToe contract", function () {
         const wallet = this.token5.address;
         this.token4.setWallet(wallet);
         await this.token1.connect(this.bob).transfer(this.token4.address, 1000000);
-
-        //const wallet = this.token5.address;
-        //this.token4.setWallet(wallet);
-        //const erc = await this.token4.token();
-        //const Token2 = await ethers.getContractFactory("ERC20Mock");
-        //this.token1 = await Token2.attach(erc);
     })
 
     describe("1. Deployment", function () {

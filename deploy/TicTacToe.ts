@@ -16,7 +16,7 @@ module.exports = async function (hre: HardhatRuntimeEnvironment) {
     const symbol = 'ERC'
     const totalSupply = 1000000
 
-    const erc = await deploy('ERC20Mock', {
+   const erc = await deploy('ERC20Mock', {
         args: [
             name,
             symbol,

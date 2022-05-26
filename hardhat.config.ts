@@ -56,6 +56,13 @@ const config: HardhatUserConfig = {
             },
             //gas: 6000000, 
         },
+        rinkeby: {
+            url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
+            accounts: {
+                mnemonic: process.env.MNEMONIC,
+            },
+            //gas: 6000000, 
+        },
         avalanche: {
             url: "https://api.avax.network/ext/bc/C/rpc",
             gasPrice: 85000000000,
