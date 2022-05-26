@@ -106,55 +106,55 @@ _idTransaction - id транзакции.
 
 
 #### Задачи для cli hardhat (TicTacToe)
-Смарт контракт размещался в тестовой сети Rospen. Предоставлены только новые или обновленный задачи (Описание остального функционала можно найти в предыдущем ДЗ). 
+Смарт контракт размещался в тестовой сети Rinkeby. Предоставлены только новые или обновленный задачи (Описание остального функционала можно найти в предыдущем ДЗ). 
 1. Создать игру и сделать ставку в ERC:  
-`npx hardhat create-game-erc --network ropsten --address $address --player $player --time $time --bet $bet`  
+`npx hardhat create-game-erc --network rinkeby --address $address --player $player --time $time --bet $bet`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $time - время ожидания хода соперника, $bet - ставка в erc. 
 
 2. Создать игруи сделать ставку в ETH:  
-`npx hardhat create-game-eth --network ropsten --address $address --player $player --time $time --bet $bet`  
+`npx hardhat create-game-eth --network rinkeby --address $address --player $player --time $time --bet $bet`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $time - время ожидания хода соперника, $bet - ставка в eth. 
 
 3. Присоединиться к игре и сделать ставку в ERC:  
-`npx hardhat join-game-erc --network ropsten --address $address --player $player --id $id --bet $bet`  
+`npx hardhat join-game-erc --network rinkeby --address $address --player $player --id $id --bet $bet`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $id - идентификатор игры (её порядковый номер в массиве games), $bet - ставка в erc.  
 
 4. Присоединиться к игре и сделать ставку в ETH:  
-`npx hardhat join-game-eth --network ropsten --address $address --player $player --id $id --bet $bet`  
+`npx hardhat join-game-eth --network rinkeby --address $address --player $player --id $id --bet $bet`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $id - идентификатор игры (её порядковый номер в массиве games), $bet - ставка в eth.  
 
 5. Сделать ход:  
-`npx hardhat move-game --network ropsten --address $address --player $player --id $id --cell $cell`  
+`npx hardhat move-game --network rinkeby --address $address --player $player --id $id --cell $cell`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $id - идентификатор игры (её порядковый номер в массиве games), $cell - клетка на игровом поле (0..8).  
 
 6. Завершить игру (Проверить на признаки завершения):  
-`npx hardhat isFinish --network ropsten --address $address --player $player --id $id`  
+`npx hardhat isFinish --network rinkeby --address $address --player $player --id $id`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $id - идентификатор игры (её порядковый номер в массиве games).  
 
 7. Пополнить свой игрвой счёт:  
-`npx hardhat balance-erc --network ropsten --address $address`
+`npx hardhat balance-erc --network rinkeby --address $address`
 $address - адрес контракта.  
 
 8. Снять средства со своего игрового счёта:  
-`npx hardhat withdrawal-game-acc --network ropsten --address $address --player $player --amount $amount`  
+`npx hardhat withdrawal-game-acc --network rinkeby --address $address --player $player --amount $amount`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $amount - Количество монет, которые хочешь вывести.  
 
 9. Установить адрес кошелька:  
-`npx hardhat set-wallet --network ropsten --address $address --player $player --wallet $wallet`  
+`npx hardhat set-wallet --network rinkeby --address $address --player $player --wallet $wallet`  
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $wallet - новый адрес кошелька.   
 
 #### Задачи для cli hardhat (Wallet)
-Смарт контракт размещался в тестовой сети Rospen.  
+Смарт контракт размещался в тестовой сети Rinkeby.  
 1. Новый адрес доверенного лица:  
-`npx hardhat set-vater --network ropsten --address $address --player $player --vater $vater --id $id`
+`npx hardhat set-vater --network rinkeby --address $address --player $player --vater $vater --id $id`
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $vater - адрес нового доверенного лица, $id - номер довереного лица (1 или 2). 
 
 2. Создать транзакцию на вывод средств с кошелька:  
-`npx hardhat new-transaction --network ropsten --address $address --player $player --to $to --amount $amount`
+`npx hardhat new-transaction --network rinkeby --address $address --player $player --to $to --amount $amount`
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $to - адрес получателя транзакции, $amount - сумма для вывода средств. 
 
 3. Подтвердить транзакцию:  
-`npx hardhat conf-transaction --network ropsten --address $address --player $player --id $id`
+`npx hardhat conf-transaction --network rinkeby --address $address --player $player --id $id`
 $address - адрес контракта, $player - порядковый номер счета из mnemonic, $id - идентификатор транзакции. 
 
 
