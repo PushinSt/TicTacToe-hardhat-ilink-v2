@@ -173,14 +173,14 @@ $address - адрес контракта, $player - порядковый ном�
 
 
 #### Проверка и публикация исходного кода контракта
-Команда для публикации контракта в тестовой сети ropsten:  
-`npx hardhat deploy --network ropsten --tags TicTacToe`  
-`npx hardhat deploy --network ropsten --tags Wallet`
+Команда для публикации контракта в тестовой сети rinkeby:  
+`npx hardhat deploy --network rinkeby --tags TicTacToe`  
+`npx hardhat deploy --network rinkeby --tags Wallet`
 
 
 Команда для верификации контракта в сети ropsten:  
-`npx hardhat --network ropsten etherscan-verify --solc-input --contract-name TicTacToe`  
-`npx hardhat --network ropsten etherscan-verify --solc-input --contract-name Wallet`
+`npx hardhat --network rinkeby etherscan-verify --solc-input --contract-name TicTacToe`  
+`npx hardhat --network rinkeby etherscan-verify --solc-input --contract-name Wallet`
 
 Адрес смарт контракта TicTacToe: `0x8D49D9C2fAd468d346c6EC00CE59Ccd3fEB7844A`  
 Адрес смарт контракта Wallet: `0xfC660D968e486f44A18CC828b58c7cB05081F5F6`
