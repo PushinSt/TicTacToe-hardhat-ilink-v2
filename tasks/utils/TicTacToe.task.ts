@@ -22,24 +22,24 @@ task("create-game-erc", "Create new game")
     })
 
 
-    // npx hardhat create-game-eth --network ropsten --address $address --player $player --time $time --bet $bet
+// npx hardhat create-game-eth --network ropsten --address $address --player $player --time $time --bet $bet
 task("create-game-eth", "Create new game")
-.addParam("address", "The contract address")
-.addParam("player", "The player number")
-.addParam("time", "Waiting time for the opponent's move")
-.addParam("bet", "Bet per game")
-.setAction(async (taskArgs, hre) => {
-    const Token = await hre.ethers.getContractFactory("TicTacToe")
-    const contract = await Token.attach(taskArgs.address)
-    const sign = await hre.ethers.getSigners();
-    //const erc = await contract.token();
-    //const Token2 = await hre.ethers.getContractFactory("ERC20Mock");
-    //const contractERC = await Token2.attach(erc);
-    //await contractERC.connect(sign[taskArgs.player]).approve(taskArgs.address, taskArgs.bet);
-    await contract.connect(sign[taskArgs.player]).createGame(taskArgs.time, 0, { value: hre.ethers.utils.parseUnits((taskArgs.bet), "finney") }); 
-    //await contract.connect(sign[taskArgs.player]).createGame(taskArgs.time, taskArgs.bet)
-    console.log("Done!")
-})
+    .addParam("address", "The contract address")
+    .addParam("player", "The player number")
+    .addParam("time", "Waiting time for the opponent's move")
+    .addParam("bet", "Bet per game")
+    .setAction(async (taskArgs, hre) => {
+        const Token = await hre.ethers.getContractFactory("TicTacToe")
+        const contract = await Token.attach(taskArgs.address)
+        const sign = await hre.ethers.getSigners();
+        //const erc = await contract.token();
+        //const Token2 = await hre.ethers.getContractFactory("ERC20Mock");
+        //const contractERC = await Token2.attach(erc);
+        //await contractERC.connect(sign[taskArgs.player]).approve(taskArgs.address, taskArgs.bet);
+        await contract.connect(sign[taskArgs.player]).createGame(taskArgs.time, 0, { value: hre.ethers.utils.parseUnits((taskArgs.bet), "finney") });
+        //await contract.connect(sign[taskArgs.player]).createGame(taskArgs.time, taskArgs.bet)
+        console.log("Done!")
+    })
 
 // npx hardhat find-game --network ropsten --address $address --player $player --index $index --timemin $timeMin --timemax $timeMax --betmin $betMin --betmax $betMax
 task("find-game", "Find one game")
@@ -91,24 +91,24 @@ task("join-game-erc", "Join a new game")
         console.log("Done!")
     })
 
-    // npx hardhat join-game --network ropsten --address $address --player $player --id $id --bet $bet
+// npx hardhat join-game --network ropsten --address $address --player $player --id $id --bet $bet
 task("join-game-eth", "Join a new game")
-.addParam("address", "The contract address")
-.addParam("player", "The player number")
-.addParam("id", "Id game")
-.addParam("bet", "Bet")
-.setAction(async (taskArgs, hre) => {
-    const Token = await hre.ethers.getContractFactory("TicTacToe")
-    const contract = await Token.attach(taskArgs.address)
-    const sign = await hre.ethers.getSigners();
-    //const erc = await contract.token();
-    //const Token2 = await hre.ethers.getContractFactory("ERC20Mock");
-    //const contractERC = await Token2.attach(erc);
-    //await contractERC.connect(sign[taskArgs.player]).approve(taskArgs.address, taskArgs.bet);
-    await contract.connect(sign[taskArgs.player]).joinGame(taskArgs.id, { value: hre.ethers.utils.parseUnits((taskArgs.bet), "finney") }); 
-    //await contract.connect(sign[taskArgs.player]).joinGame(taskArgs.id)
-    console.log("Done!")
-})
+    .addParam("address", "The contract address")
+    .addParam("player", "The player number")
+    .addParam("id", "Id game")
+    .addParam("bet", "Bet")
+    .setAction(async (taskArgs, hre) => {
+        const Token = await hre.ethers.getContractFactory("TicTacToe")
+        const contract = await Token.attach(taskArgs.address)
+        const sign = await hre.ethers.getSigners();
+        //const erc = await contract.token();
+        //const Token2 = await hre.ethers.getContractFactory("ERC20Mock");
+        //const contractERC = await Token2.attach(erc);
+        //await contractERC.connect(sign[taskArgs.player]).approve(taskArgs.address, taskArgs.bet);
+        await contract.connect(sign[taskArgs.player]).joinGame(taskArgs.id, { value: hre.ethers.utils.parseUnits((taskArgs.bet), "finney") });
+        //await contract.connect(sign[taskArgs.player]).joinGame(taskArgs.id)
+        console.log("Done!")
+    })
 
 
 
@@ -203,16 +203,16 @@ task("inc-game-acc", "Increasing the game account")
         const Token = await hre.ethers.getContractFactory("TicTacToe")
         const contract = await Token.attach(taskArgs.address)
         const sign = await hre.ethers.getSigners();
- 
 
-        await contract.connect(sign[taskArgs.player]).incGameAcc({ value: hre.ethers.utils.parseUnits((taskArgs.amount), "finney") }); 
-           
+
+        await contract.connect(sign[taskArgs.player]).incGameAcc({ value: hre.ethers.utils.parseUnits((taskArgs.amount), "finney") });
+
         console.log("Done!")
     })
 
 
 
-  
+
 // npx hardhat balance-erc --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
 task("balance-erc", "Balance erc")
     .addParam("address", "The contract address")
@@ -225,27 +225,27 @@ task("balance-erc", "Balance erc")
         const accounts = await hre.ethers.getSigners()
         for (const account of accounts) {
             balance = await contract.balancePlayer(account.address)
-            console.log(`Acc: ${account.address } , balance: ${balance} `);
+            console.log(`Acc: ${account.address} , balance: ${balance} `);
         }
         console.log("Done!")
     })
-    
 
-    // npx hardhat set-wallet --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 --player 0 --wallet 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+
+// npx hardhat set-wallet --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 --player 0 --wallet 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
 task("set-wallet", "Change address of wallet")
-.addParam("address", "The contract address")
-.addParam("player", "The player address")
-.addParam("wallet", "The wallet address")
-.setAction(async (taskArgs, hre) => {
-    const Token = await hre.ethers.getContractFactory("TicTacToe")
-    const contract = await Token.attach(taskArgs.address)
-    const sign = await hre.ethers.getSigners();
-    await contract.connect(sign[taskArgs.player]).setWallet(taskArgs.wallet);       
-    console.log("Done!")
-})
+    .addParam("address", "The contract address")
+    .addParam("player", "The player address")
+    .addParam("wallet", "The wallet address")
+    .setAction(async (taskArgs, hre) => {
+        const Token = await hre.ethers.getContractFactory("TicTacToe")
+        const contract = await Token.attach(taskArgs.address)
+        const sign = await hre.ethers.getSigners();
+        await contract.connect(sign[taskArgs.player]).setWallet(taskArgs.wallet);
+        console.log("Done!")
+    })
 
-    // npx hardhat set-commission --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 --player 0 --commission 10
-    task("set-commission", "Change commision")
+// npx hardhat set-commission --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 --player 0 --commission 10
+task("set-commission", "Change commision")
     .addParam("address", "The contract address")
     .addParam("player", "The player address")
     .addParam("commission", "new commission")
@@ -253,10 +253,10 @@ task("set-wallet", "Change address of wallet")
         const Token = await hre.ethers.getContractFactory("TicTacToe")
         const contract = await Token.attach(taskArgs.address)
         const sign = await hre.ethers.getSigners();
-        await contract.connect(sign[taskArgs.player]).setCommission(taskArgs.commission);       
+        await contract.connect(sign[taskArgs.player]).setCommission(taskArgs.commission);
         console.log("Done!")
     })
-    
+
 
 // npx hardhat withdrawal-game-acc --network localhost --address 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 --player 1 --amount 100
 task("withdrawal-game-acc", "Player withdraws ERC from account")
@@ -271,7 +271,7 @@ task("withdrawal-game-acc", "Player withdraws ERC from account")
         const Token2 = await hre.ethers.getContractFactory("ERC20Mock");
         const contractERC = await Token2.attach(erc);
         await contractERC.connect(sign[taskArgs.player]).approve(taskArgs.address, taskArgs.amount);
-        await contract.connect(sign[taskArgs.player]).withdrawalGameAcc(taskArgs.amount); 
+        await contract.connect(sign[taskArgs.player]).withdrawalGameAcc(taskArgs.amount);
         console.log("Done!")
     })
 
@@ -282,14 +282,14 @@ task("withdrawal-game-acc", "Player withdraws ERC from account")
 // npx hardhat set-vater --network localhost --address 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 --player 0 --vater 0x70997970c51812dc3a010c7d01b50e0d17dc79c8 --id 1
 task("set-vater", "Change the voiting's address")
     .addParam("address", "The contract address")
-    .addParam("player", "The player address") 
+    .addParam("player", "The player address")
     .addParam("vater", "The new voiting's address")
     .addParam("id", "Id voting")
     .setAction(async (taskArgs, hre) => {
         const Token = await hre.ethers.getContractFactory("Wallet")
         const contract = await Token.attach(taskArgs.address)
-        const sign = await hre.ethers.getSigners();       
-        await contract.connect(sign[taskArgs.player]).setVater(taskArgs.vater, taskArgs.id); 
+        const sign = await hre.ethers.getSigners();
+        await contract.connect(sign[taskArgs.player]).setVater(taskArgs.vater, taskArgs.id);
         console.log("Done!")
     })
 
@@ -297,44 +297,44 @@ task("set-vater", "Change the voiting's address")
 // npx hardhat new-transaction --network localhost --address 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 --player 0 --to 0x70997970c51812dc3a010c7d01b50e0d17dc79c8 --amount 100
 task("new-transaction", "Create the transaction")
     .addParam("address", "The contract address")
-    .addParam("player", "The player address") 
+    .addParam("player", "The player address")
     .addParam("to", "Address of the recipient")
     .addParam("amount", "Sum")
     .setAction(async (taskArgs, hre) => {
         const Token = await hre.ethers.getContractFactory("Wallet")
         const contract = await Token.attach(taskArgs.address)
-        const sign = await hre.ethers.getSigners();       
-        await contract.connect(sign[taskArgs.player]).newTransaction(taskArgs.to, hre.ethers.utils.parseUnits((taskArgs.amount), "finney")); 
+        const sign = await hre.ethers.getSigners();
+        await contract.connect(sign[taskArgs.player]).newTransaction(taskArgs.to, hre.ethers.utils.parseUnits((taskArgs.amount), "finney"));
         console.log("Done!")
     })
 
-    
+
 // npx hardhat conf-transaction --network localhost --address 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 --player 0 --id 0
 task("conf-transaction", "Vote for a transaction")
-.addParam("address", "The contract address")
-.addParam("player", "The player address") 
-.addParam("id", "Id transaction")
-.setAction(async (taskArgs, hre) => {
-    const Token = await hre.ethers.getContractFactory("Wallet")
-    const contract = await Token.attach(taskArgs.address)
-    const sign = await hre.ethers.getSigners();       
-    await contract.connect(sign[taskArgs.player]).confTransaction(taskArgs.id); 
-    console.log("Done!")
-})
+    .addParam("address", "The contract address")
+    .addParam("player", "The player address")
+    .addParam("id", "Id transaction")
+    .setAction(async (taskArgs, hre) => {
+        const Token = await hre.ethers.getContractFactory("Wallet")
+        const contract = await Token.attach(taskArgs.address)
+        const sign = await hre.ethers.getSigners();
+        await contract.connect(sign[taskArgs.player]).confTransaction(taskArgs.id);
+        console.log("Done!")
+    })
 
 
 // npx hardhat wallet-balance --network localhost --address 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0 --player 0 
 task("wallet-balance", "Get balance of wallet")
-.addParam("address", "The contract address")
-.addParam("player", "The player address") 
-.setAction(async (taskArgs, hre) => {
-    const Token = await hre.ethers.getContractFactory("Wallet")
-    const contract = await Token.attach(taskArgs.address)
-    const sign = await hre.ethers.getSigners();       
-    const result = await contract.connect(sign[taskArgs.player]).walletBalance(); 
-    console.log(result);
-    console.log("Done!");
-})
+    .addParam("address", "The contract address")
+    .addParam("player", "The player address")
+    .setAction(async (taskArgs, hre) => {
+        const Token = await hre.ethers.getContractFactory("Wallet")
+        const contract = await Token.attach(taskArgs.address)
+        const sign = await hre.ethers.getSigners();
+        const result = await contract.connect(sign[taskArgs.player]).walletBalance();
+        console.log(result);
+        console.log("Done!");
+    })
 
 
 
